@@ -17,6 +17,8 @@ selected_fruits = streamlit.multiselect("Pick some fruits:", list(fruit_list.ind
 fruits_to_show = fruit_list.loc[selected_fruits]
 streamlit.dataframe(fruits_to_show)
 
+streamlit.header("Fruityvice Fruit Advice!")
+
 import requests
 fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
-streamlit.text(fruityvice_response)
+streamlit.text(fruityvice_response.json())
